@@ -168,10 +168,6 @@ Pull requests are welcome! For major changes, please open an issue first to disc
    - Check your internet connection
    - The first run will download the model, which may take time
 
-## License
-
-[MIT License](LICENSE)
-
 ## Acknowledgments
 
 - [OpenAI Whisper](https://github.com/openai/whisper) for the transcription model
