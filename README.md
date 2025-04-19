@@ -3,9 +3,6 @@
 ![main-screen](image.png) 
 ![succes-transcribe](image-1.png)
 
-## Overview
-
-**PROMIXA** is a cross-platform, AI-powered desktop application for fast and accurate audio transcription. It combines a modern JavaFX interface with the powerful OpenAI Whisper model running in Python. PROMIXA is designed for everyone—no technical setup required, just run the `.exe` and start transcribing!
 
 ## Features
 
