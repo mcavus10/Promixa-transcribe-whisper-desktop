@@ -90,13 +90,6 @@ This will launch the PROMIXA Transcribe Desktop app. The JavaFX UI will appear a
 > - The first time you use a model, it will be downloaded automatically. This may take a few minutes depending on your internet speed and model size.
 > - Larger models will use more RAM and disk space, but result in better transcription quality.
 
-## Screenshot
-
-> **Replace the placeholder below with your own screenshot!**
-
-![PROMIXA Screenshot](PLACEHOLDER_FOR_SCREENSHOT)
-
----
 
 ## Building Your Own .exe
 
