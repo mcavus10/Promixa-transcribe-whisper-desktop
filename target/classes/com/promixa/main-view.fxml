@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.promixa.MainController" prefWidth="800" prefHeight="600">
+    <top>
+        <HBox alignment="CENTER" spacing="10.0" styleClass="header-container">
+            <padding>
+                <Insets bottom="8.0" left="15.0" right="15.0" top="8.0" />
+            </padding>
+            <Label text="PROMIXA" styleClass="app-title">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Label>
+            <Label text="Transcription" styleClass="app-subtitle">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Label>
+        </HBox>
+    </top>
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="main-scroll-pane" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" BorderPane.alignment="CENTER">
+            <content>
+                <VBox alignment="CENTER" spacing="15.0" styleClass="root-container">
+                    <padding>
+                        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+                    </padding>
+
+                    <VBox fx:id="dropArea" alignment="CENTER" spacing="10.0" styleClass="drop-area" maxHeight="150.0"
+                          onDragOver="#handleDragOver" onDragDropped="#handleDragDropped">
+                        <padding>
+                            <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                        </padding>
+                        <HBox alignment="CENTER" spacing="15.0">
+                            <ImageView fitHeight="40.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                <Image url="@icons/upload-icon.svg" />
+                            </ImageView>
+                            <VBox alignment="CENTER_LEFT" spacing="5.0">
+                                <Label fx:id="dropLabel" text="Drag &amp; Drop Audio File Here" styleClass="drop-label">
+                                    <font>
+                                        <Font size="14.0" />
+                                    </font>
+                                </Label>
+                                <Button text="Browse Files..." onAction="#handleBrowseFiles" styleClass="browse-button">
+                                    <graphic>
+                                        <ImageView fitHeight="12.0" fitWidth="12.0">
+                                            <Image url="@icons/folder-icon.svg" />
+                                        </ImageView>
+                                    </graphic>
+                                </Button>
+                            </VBox>
+                        </HBox>
+                    </VBox>
+
+                    <HBox alignment="CENTER" spacing="10.0">
+                        <Label text="Whisper Model:" styleClass="model-label">
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Label>
+                        <ComboBox fx:id="modelComboBox" promptText="Select Model" prefWidth="180.0">
+                            <tooltip><Tooltip text="Select the Whisper model size - larger models are more accurate but slower"/></tooltip>
+                        </ComboBox>
+                    </HBox>
+                
+                    <HBox alignment="CENTER" spacing="15.0">
+                        <Button fx:id="transcribeButton" mnemonicParsing="false" onAction="#handleTranscribe" text="Transcribe" styleClass="action-button">
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0">
+                                    <Image url="@icons/play-icon.svg" />
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                        <Button fx:id="clearButton" mnemonicParsing="false" onAction="#handleClear" text="Clear" styleClass="secondary-button">
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0">
+                                    <Image url="@icons/clear-icon.svg" />
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                        <ProgressIndicator fx:id="progressIndicator" prefHeight="30.0" prefWidth="30.0" visible="false"/>
+                    </HBox>
+                    <Label fx:id="statusLabel" text="" styleClass="status-label" maxWidth="Infinity" alignment="CENTER">
+                        <font>
+                            <Font size="13.0" />
+                        </font>
+                    </Label>
+                    <TextArea fx:id="resultTextArea" editable="false" promptText="Transcription results will appear here..." wrapText="true" VBox.vgrow="ALWAYS" minHeight="200.0" prefHeight="250.0" styleClass="result-text-area">
+                        <font>
+                            <Font size="14.0" />
+                        </font>
+                    </TextArea>
+
+                    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+                        <Button fx:id="saveButton" mnemonicParsing="false" onAction="#handleSave" text="Save Transcription" styleClass="action-button">
+                            <graphic>
+                                <ImageView fitHeight="16.0" fitWidth="16.0">
+                                    <Image url="@icons/save-icon.svg" />
+                                </ImageView>
+                            </graphic>
+                            <font>
+                                <Font size="14.0" />
+                            </font>
+                        </Button>
+                    </HBox>
+                </VBox>
+            </content>
+        </ScrollPane>
+    </center>
+    <bottom>
+        <HBox alignment="CENTER" spacing="5.0" styleClass="footer-container">
+            <padding>
+                <Insets bottom="8.0" left="10.0" right="10.0" top="8.0" />
+            </padding>
+            <Hyperlink fx:id="devPageLink" text="Go to Dev Page" styleClass="footer-link" onAction="#openDevPage">
+                <font>
+                    <Font size="12.0" />
+                </font>
+            </Hyperlink>
+        </HBox>
+    </bottom>
+</BorderPane>
